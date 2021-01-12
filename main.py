@@ -1,15 +1,21 @@
 #!/usr/local/bin/python3
 #!python3
 
-import math
+#data - https://opendata.vancouver.ca/explore/dataset/census-local-area-profiles-2016/information/
 
-whatIsMean = 'Average - Sum / Count'
 
-def mean(*args):
-    cal_mean = sum(args)
-    return cal_mean / len(args)
+import openpyxl
 
-printf = mean(1, 2, 3)
+path='D:\Github repos\pythonStatistics\CensusLocalAreaProfiles2016.xlsx'
 
-print (printf)
+demographics_sheet=openpyxl.load_workbook(path,read_only=False,keep_vba=False,data_only=True,keep_links=True)
+
+ws = demographics_sheet.active
+
+print(ws['D6'].value)
+
+
+
+
+
 
